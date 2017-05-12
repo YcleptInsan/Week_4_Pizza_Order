@@ -1,6 +1,7 @@
 body {
 
 }
+
 .container {
 	background-image: url();
 }
@@ -21,14 +22,17 @@ body {
 #toggle1{
 
 }
+#userInputSize {
+	display: none;
+}
 #userInputSize option{
-
+	
 }
 #toggle2{
 
 }
 #userInputSauce {
-
+	display: none;
 }
 #userInputSauce option{
 
@@ -37,25 +41,25 @@ body {
 
 }
 #userInputCrust {
-
+	display: none;
 }
 #userInputCrust option{
 
 }
 #toggle4{
-	text-align: center;
+	text-decoration: underline;
 }
 #userInputVeggieTopping {
-
+	display: none;
 }
 #userInputVeggieTopping input{
 
 }
 #toggle5{
-	text-align: center;
+	text-decoration: underline;
 }
 #userInputMeatTopping {
-
+	display: none;
 }
 #userInputMeatTopping input{
 
