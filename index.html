@@ -16,18 +16,17 @@
           <h2>Build your own Pizza:</h2>
           <form id="Pizza-Builder">
             <div class="form-group">
-
-						<p>Choose Size:</p>
-						<select class="form-control" id="userInputSize">
-							<option>X-large</option>
-							<option>Large</option>
-							<option>Medium</option>
-							<option>Small</option>
-						</select>
+							<p id="toggle1">Choose Size:</p>
+							<select class="form-control" id="userInputSize">
+								<option>X-large</option>
+								<option>Large</option>
+								<option>Medium</option>
+								<option>Small</option>
+							</select>
 						<br>
             </div>
             <div class="form-group">
-							<p>Choose Sauce:</p>
+							<p id="toggle2">Choose Sauce:</p>
 							<select class="form-control" id="userInputSauce">
 								<option>Marinara</option>
 								<option>White</option>
@@ -36,7 +35,7 @@
 							</select>
             </div>
             <div class="form-group">
-							<p>Choose Crust:</p>
+							<p id="toggle3">Choose Crust:</p>
 							<select class="form-control" id="userInputCrust">
 								<option>Brooklyn</option>
 								<option>Deep Dish</option>
@@ -46,6 +45,7 @@
             </div>
             <div class="form-group">
 							<div id="userInputVeggieTopping">
+								<pid="toggle4">Veggie Toppings:</p>
 								<input type="checkbox" name="topping" value="bell-pepper"> Bell Pepper<br>
 							 	<input type="checkbox" name="topping" value="mushrooms"> Mushroom<br>
 								<input type="checkbox" name="topping" value="onion"> Onion<br>
@@ -54,16 +54,19 @@
 								<input type="checkbox" name="topping" value="spinach"> Spinach<br>
 								<input type="checkbox" name="topping" value="jalapenos"> Jalapenos<br>
 								<input type="checkbox" name="topping" value="banana-peppers"> Banana peppers<br>
+							</div>
+							<div id="userInputMeatTopping">
+								<p id="toggle5">Meat Toppings:</p>
 							 	<input type="checkbox" name="topping" value="pepperoni"> Pepperoni<br>
 								<input type="checkbox" name="topping" value="sausage"> Sausage<br>
 								<input type="checkbox" name="topping" value="bacon"> Bacon<br>
 								<input type="checkbox" name="topping" value="canadian-bacon"> Canadian Bacon<br>
 								<input type="checkbox" name="topping" value="chicken"> Chicken<br>
 								<input type="checkbox" name="topping" value="salami"> Salami<br>
-						 </div>
+							</div>
             </div>
 
-            <button type="submit" class="btn">Add</button>
+            <button type="submit" class="btn">Create</button>
           </form>
         </div>
         <div class="col-md-6">
