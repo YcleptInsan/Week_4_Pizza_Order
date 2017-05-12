@@ -1,22 +1,35 @@
 // BACK END LOGIC BELOW THIS POINT
-// var pizzaOrder = function(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings){
-// CONSTRUCTOR FOR PIZZA BUILDING
-function pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings){
+// var allPrices = pricesSize  + pricesSauce + pricesCrust + pricesToppings;
+function pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaCheckedToppings, price){
 	this.pizzaSize = pizzaSize;
 	this.pizzaSauce = pizzaSauce;
 	this.pizzaCrust = pizzaCrust;
-	this.pizzaAllToppings = pizzaAllToppings;
-}
-
-	// var myPizza = new pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings);
-	// console.log(myPizza);
-	// ASSEMBLE PROTOTYPE
-	pizza.prototype.assemble = function(){
-
-		return this.pizzaSize + " " + this.pizzaSauce + " " + this.pizzaCrust + " " + 		 this.pizzaAllToppings;
+	this.pizzaCheckedToppings = pizzaCheckedToppings;
+	this.price = price;
 
 }
-// }
+pizza.prototype.assemble = function(){
+
+	return this.pizzaSize + " " + this.pizzaSauce + " " + this.pizzaCrust + " " + 		 this.pizzaCheckedToppings +"Your price is "+ " " +  this.price ;
+
+}
+
+function pizzaCost(sizeTotal,toppingTotal ){
+  var toppingPrice = toppingTotal.length * 0.50;
+  if(sizeTotal === "X-Large"){
+    var sizePrice = 16.00;
+  }
+  else if(sizeTotal === "Large"){
+    var sizePrice = 12.00;
+  }
+  else if(sizeTotal === "Medium"){
+    var sizePrice = 8.00;
+  }
+  else if(sizeTotal === "Small"){
+    var sizePrice = 5.00;
+  }
+  return (toppingTotal + sizeCost).toFixed(2);
+};
 
 // FRONT END LOGIC BELOW THIS POINT
 $(document).ready(function(){
@@ -52,17 +65,20 @@ $(document).ready(function(){
 			event.preventDefault();
 			$("#complete-pizza").show();
 			$(".col-md-6").show();
-			// $("input:checkbox[name=topping]:checked").each(function(){
-			// 	var temp = $(this).val();
-			// 	toppingsTemp.push(temp);
-			// });
+
+			var myPizza = new pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaCheckedToppings);
 				var pizzaSize = $("#userInputSize").val();
 				var pizzaSauce = $("#userInputSauce").val();
 				var pizzaCrust = $("#userInputCrust").val();
-				// var pizzaAllToppings = $("input:checkbox[name=topping]:checked").val();
-				var myPizza = new pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings);
+				var pizzaCheckedToppings = [];
+				$("input:checkbox[name=topping]:checked").each(function() {
+				      var topping = $(this).val();
+				      pizzaCheckedToppings.push(topping);
+				    });
+						console.log(myPizza);
 
 				$("#complete-pizza").append("<p>" + myPizza.assemble() + "</p>");
-	
+
+
 	});
 });
