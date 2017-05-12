@@ -10,10 +10,10 @@
   <body>
     <div class="container">
       <h1>Welcome To Bobs Pizza</h1>
-
+			<p id="onClick">Click <span id="blueLink">here</span> to start</p>
       <div class="row">
         <div class="col-md-6">
-          <h2>Build your own Pizza:</h2>
+					<h2>Build your own Pizza:</h2>
           <form id="Pizza-Builder">
             <div class="form-group">
 							<p id="toggle1">Choose Size:</p>
@@ -43,9 +43,11 @@
 								<option>Hand Tossed</option>
 							</select>
             </div>
-            <div class="form-group">
+						<br>
+						<br>
+            <div class="form-group" id="allToppingSelect">
 							<div id="userInputVeggieTopping">
-								<pid="toggle4">Veggie Toppings:</p>
+								<p id="toggle4">Veggie Toppings:</p>
 								<input type="checkbox" name="topping" value="bell-pepper"> Bell Pepper<br>
 							 	<input type="checkbox" name="topping" value="mushrooms"> Mushroom<br>
 								<input type="checkbox" name="topping" value="onion"> Onion<br>
@@ -55,6 +57,9 @@
 								<input type="checkbox" name="topping" value="jalapenos"> Jalapenos<br>
 								<input type="checkbox" name="topping" value="banana-peppers"> Banana peppers<br>
 							</div>
+							<br>
+							<br>
+
 							<div id="userInputMeatTopping">
 								<p id="toggle5">Meat Toppings:</p>
 							 	<input type="checkbox" name="topping" value="pepperoni"> Pepperoni<br>
@@ -65,8 +70,9 @@
 								<input type="checkbox" name="topping" value="salami"> Salami<br>
 							</div>
             </div>
-
-            <button type="submit" class="btn">Create</button>
+						<div id="button1">						
+							<button type="submit" class="btn">Build</button>
+						</div>
           </form>
         </div>
         <div class="col-md-6">

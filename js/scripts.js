@@ -1,6 +1,7 @@
 $(document).ready(function(){
-	$("form#Pizza-Builder").click(function(event){
+	$("#blueLink").click(function(event){
 		event.preventDefault();
-
+		$(".form-group").show();
+		$(".col-md-6").show();
 	});
 });

@@ -1,0 +1,78 @@
+body {
+
+}
+.container {
+	background-image: url();
+}
+.container h1{
+	text-align: center;
+}
+.form-group{
+	display: none;
+}
+#onClick {
+	text-align: center;
+}
+#blueLink {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#toggle1{
+
+}
+#userInputSize option{
+
+}
+#toggle2{
+
+}
+#userInputSauce {
+
+}
+#userInputSauce option{
+
+}
+#toggle3{
+
+}
+#userInputCrust {
+
+}
+#userInputCrust option{
+
+}
+#toggle4{
+	text-align: center;
+}
+#userInputVeggieTopping {
+
+}
+#userInputVeggieTopping input{
+
+}
+#toggle5{
+	text-align: center;
+}
+#userInputMeatTopping {
+
+}
+#userInputMeatTopping input{
+
+}
+.col-md-6 {
+	display: none;
+}
+#complete-pizza {
+	display: none;
+}
+button{
+	text-align: center;
+	margin-left: 250px;
+}
+* {
+	border: 2px solid green;
+}
+#allToppingSelect {
+
+}
