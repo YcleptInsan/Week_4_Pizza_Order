@@ -1,12 +1,31 @@
 // BACK END LOGIC BELOW THIS POINT
+// var pizzaOrder = function(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings){
+// CONSTRUCTOR FOR PIZZA BUILDING
+function pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings){
+	this.pizzaSize = pizzaSize;
+	this.pizzaSauce = pizzaSauce;
+	this.pizzaCrust = pizzaCrust;
+	this.pizzaAllToppings = pizzaAllToppings;
+}
 
+	// var myPizza = new pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings);
+	// console.log(myPizza);
+	// ASSEMBLE PROTOTYPE
+	pizza.prototype.assemble = function(){
+
+		return this.pizzaSize + " " + this.pizzaSauce + " " + this.pizzaCrust + " " + 		 this.pizzaAllToppings;
+
+}
+// }
 
 // FRONT END LOGIC BELOW THIS POINT
 $(document).ready(function(){
 	$("#blueLink").click(function(event){
 		event.preventDefault();
-		$(".form-group").toggle();
-		$(".col-md-6").toggle();
+
+		// TO TOGGLE ITEM LIST ON AND OFF
+		$(".form-group").show();
+		$(".col-md-6").show();
 
 		$("#toggle1").click(function(){
 			$("#userInputSize").slideToggle(1);
@@ -27,17 +46,23 @@ $(document).ready(function(){
 		$("#toggle5").click(function(){
 			$("#userInputMeatTopping").slideToggle(1);
 		});
+	});
+// ON SUBMISSION OF COMPLETE ORDER
+		$("#button1").click(function(event){
+			event.preventDefault();
+			$("#complete-pizza").show();
+			$(".col-md-6").show();
+			// $("input:checkbox[name=topping]:checked").each(function(){
+			// 	var temp = $(this).val();
+			// 	toppingsTemp.push(temp);
+			// });
+				var pizzaSize = $("#userInputSize").val();
+				var pizzaSauce = $("#userInputSauce").val();
+				var pizzaCrust = $("#userInputCrust").val();
+				// var pizzaAllToppings = $("input:checkbox[name=topping]:checked").val();
+				var myPizza = new pizza(pizzaSize, pizzaSauce, pizzaCrust, pizzaAllToppings);
 
-		$("#button1").submit(function(){
-			var pizzaSize = $("#userInputSize").val();
-			var pizzaSauce = $("#userInputSauce").val();
-			var pizzaCrust = $("#userInputCrust").val();
-			var pizzaAllToppings = $("input:checkbox[name=topping]:checked").each(function(){
-			var checkToppings = $(this).val();
-
-				//next do something with this var that has the state of which checkbox is checked
-				$('#complete-pizza').append(checkToppings + "<br>");
-			});
-		});
+				$("#complete-pizza").append("<p>" + myPizza.assemble() + "</p>");
+	
 	});
 });
