@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <h1>Welcome To Bobs Pizza</h1>
-			<p id="onClick">Click <span id="blueLink">here</span> to start</p>
+			<p id="onClick">Click <span id="blueLink">here</span> to Create your Own!!</p>
       <div class="row">
         <div class="col-md-6">
 					<h2>Build your own Pizza:</h2>
@@ -28,10 +28,10 @@
             <div class="form-group">
 							<p id="toggle2">Choose Sauce:</p>
 							<select class="form-control" id="userInputSauce">
-								<option>Marinara</option>
-								<option>White</option>
-								<option>Pesto</option>
-								<option>Robust Tomato</option>
+								<option name="marinara-sauce">Marinara</option>
+								<option name="white-sauce">White</option>
+								<option name="pesto-sauce">Pesto</option>
+								<option name="robust-tomato-sauce">Robust Tomato</option>
 							</select>
             </div>
             <div class="form-group">
@@ -70,8 +70,8 @@
 								<input type="checkbox" name="topping" value="salami"> Salami<br>
 							</div>
             </div>
-						<div id="button1">						
-							<button type="submit" class="btn">Build</button>
+						<div id="button-container">
+							<button id="button1" type="submit" class="btn">Build</button>
 						</div>
           </form>
         </div>
