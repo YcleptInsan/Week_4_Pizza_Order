@@ -5,36 +5,23 @@ function pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total){
 	this.pizzaSauce = pizzaSauce;
 	this.pizzaCheckedToppings = pizzaCheckedToppings;
 	this.total = total;
-
 }
 pizza.prototype.sentence = function(){
 
-	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + total;
+	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + this.total;
 
 }
-// pizza.prototype.prices = function(){
-// 	var xL = 19.95;
-// 	var large = 16.00;
-// 	var medium = 14.00;
-// 	var small = 9.00
-// 	var costToppings = pizzaCheckedToppings.length;
-// 	var xlTotal = xL + costToppings;
-// 	var largeTotal = large + costToppings;
-// 	var mediumTotal = medium + costToppings;
-// 	var smallTotal = small + costToppings;
-//
-// }
-function sizeCost(toppingsAmount, sizeCost) {
-	var toppingCost = toppingAmount.length * 2.00;
-	console.log(toppingcost);
-		if(sizeCost === "XL"){
-			sizeCost = 19.00 + toppingCost;
-		} else if(sizeCost === "Large"){
-			sizeCost = 16.00 + toppingCost;
-		} else if(sizeCost === "Medium"){
-			sizeCost = 14.00 + toppingCost;
-		} else if(sizeCost === "small"){
-			sizeCost = 9.00 + toppingCost;
+
+function totalCost(pizzaCheckedToppings, sizeCost) {
+	var toppingCost = pizzaCheckedToppings.length * 2.00;
+		if(sizeCost = "XL"){
+			sizeCost = 19.00;
+		} else if(sizeCost = "Large"){
+			sizeCost = 16.00;
+		} else if(sizeCost = "Medium"){
+			sizeCost = 14.00 ;
+		} else if(sizeCost = "small"){
+			sizeCost = 9.00;
 		}
 		 return (toppingCost + sizeCost).toFixed(2);
 		}
@@ -82,10 +69,9 @@ $(document).ready(function(){
 				var topping = $(this).val();
 					pizzaCheckedToppings.push(topping);
 				});
-				console.log(pizzaCheckedToppings);
-				var myPizza = new pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings);
-				var total = sizeCost(toppingCost, sizeCost);
-				$("#complete-pizza").append("<p>" + myPizza.sentence() + "</p>");
+
+				var myPizza = new pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total);
+				$("#complete-pizza").append("<p>" + myPizza + "</p>");
 
 
 
