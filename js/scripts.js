@@ -1,29 +1,30 @@
 // BACK END LOGIC BELOW THIS POINT
-function pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total){
+function Pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total){
 	this.pizzaSize = pizzaSize;
 	this.pizzaCrust = pizzaCrust;
 	this.pizzaSauce = pizzaSauce;
 	this.pizzaCheckedToppings = pizzaCheckedToppings;
-	this.total = total;
-
-}
-pizza.prototype.sentence = function(){
-
-	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + this.total;
-
-}
-function calcCost(pizzaSize, pizzaCheckedToppings, total) {
-	if(this.pizzaSize === "XL") {
-		this.total = 24.95;
-	} else if(this.pizzaSize === "Large") {
-		this.total = 19.99;
-	} else if(this.pizzaSize === "Medium") {
-		this.total = 16.00;
-	} else if(this.pizzaSize === "Small") {
-		this.total = 14.00;
-	} else {
-		return this.pizzaSize + this.total;
-	}
+	this.total = this.total;
+};
+// pizza.prototype.sentence = function(){
+//
+// 	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + this.total;
+//
+// }
+Pizza.prototype.construct = function(pizzaSize, pizzaCheckedToppings, total){
+ 	var toppingCost = this.pizzaCheckedToppings.length * 2.00;
+		if(this.pizzaSize === "XL") {
+			this.total = 24.95;
+		} else if(this.pizzaSize === "Large") {
+			this.total = 19.99;
+		} else if(this.pizzaSize === "Medium") {
+			this.total = 16.00;
+		} else if(this.pizzaSize === "Small") {
+			this.total = 14.00;
+		} else {
+			return (this.total + toppingCost);
+		}
+		console.log(this.total + toppingCost);
 }
 
 
@@ -61,26 +62,22 @@ $(document).ready(function(){
 			event.preventDefault();
 			$("#complete-pizza").show();
 			$(".col-md-6").show();
-				this.pizzaSize = $("#userInputSize").val();
-				this.pizzaSauce = $("#userInputSauce").val();
-				this.pizzaCrust = $("#userInputCrust").val();
-				this.pizzaCheckedToppings = [];
-				//trying to pass string to global varible
-				// console.log(pizzaCheckedToppings);
+				var pizzaSize = $("#userInputSize").val();
+				var pizzaSauce = $("#userInputSauce").val();
+				var pizzaCrust = $("#userInputCrust").val();
+				var pizzaCheckedToppings = [];
 
-			$("input:checkbox[name=topping]:checked").each(function() {
+				console.log(pizzaCheckedToppings);
+
+			$("input:checkbox[name=topping]:checked").each(function(){
 				var topping = $(this).val();
-					this.pizzaCheckedToppings.push(topping);
-					console.log(topping);
-					console.log(typeof(topping));
+					pizzaCheckedToppings.push(topping)
 				});
 
-				// var myPizza = new pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total);
-				// $("#complete-pizza").append("<p>" + myPizza + "</p>");
+				var totalCost = new Pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, this.total);
 
-
-
-
+				console.log(totalCost);
+				$("#complete-pizza").append("<p>" + totalCost.construct() + "</p>");
 
 	});
 });
