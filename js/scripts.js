@@ -1,17 +1,12 @@
 // BACK END LOGIC BELOW THIS POINT
-function Pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, total){
+function Pizza(pizzaSize, pizzaCrust, pizzaSauce, total){
 	this.pizzaSize = pizzaSize;
 	this.pizzaCrust = pizzaCrust;
 	this.pizzaSauce = pizzaSauce;
-	this.pizzaCheckedToppings = pizzaCheckedToppings;
-	this.total = this.total;
-};
-// pizza.prototype.sentence = function(){
-//
-// 	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + this.total;
-//
-// }
-Pizza.prototype.construct = function(pizzaSize, pizzaCheckedToppings, total){
+	this.pizzaCheckedToppings = [];
+	this.total = total;
+}
+Pizza.prototype.construct = function(){
  	var toppingCost = this.pizzaCheckedToppings.length * 2.00;
 		if(this.pizzaSize === "XL") {
 			this.total = 24.95;
@@ -25,6 +20,11 @@ Pizza.prototype.construct = function(pizzaSize, pizzaCheckedToppings, total){
 			return (this.total + toppingCost);
 		}
 		console.log(this.total + toppingCost);
+}
+Pizza.prototype.sentence = function(){
+
+	return "You bought an" + " " + this.pizzaSize + " " + this.pizzaCrust + " " + " Style pizza with " + this.pizzaSauce + " " + "Sauce and the following toppings." + " " + this.pizzaCheckedToppings + " " + "Your total is: " + this.total;
+
 }
 
 
@@ -65,19 +65,20 @@ $(document).ready(function(){
 				var pizzaSize = $("#userInputSize").val();
 				var pizzaSauce = $("#userInputSauce").val();
 				var pizzaCrust = $("#userInputCrust").val();
-				var pizzaCheckedToppings = [];
-
-				console.log(pizzaCheckedToppings);
+				var total = 0;
+				var pizza1 = new Pizza(pizzaSize, pizzaCrust, pizzaSauce, total);
 
 			$("input:checkbox[name=topping]:checked").each(function(){
 				var topping = $(this).val();
-					pizzaCheckedToppings.push(topping)
+					pizza1.pizzaCheckedToppings.push(topping);
 				});
 
-				var totalCost = new Pizza(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, this.total);
 
-				console.log(totalCost);
-				$("#complete-pizza").append("<p>" + totalCost.construct() + "</p>");
+				// var finalCost = pizza1.construct(pizzaSize, pizzaCrust, pizzaSauce, pizzaCheckedToppings, this.total);
+
+				pizza1.construct();
+				$("#complete-pizza").append("<p>" + pizza1.sentence() + "</p>");
+				console.log(pizza1);
 
 	});
 });
